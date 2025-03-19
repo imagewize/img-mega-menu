@@ -4,6 +4,7 @@ namespace Imagewize\ImgMegaMenu\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Imagewize\ImgMegaMenu\MegaMenu;
+use Imagewize\ImgMegaMenu\MenuFields;
 
 class ImgMegaMenuServiceProvider extends ServiceProvider
 {
@@ -39,5 +40,11 @@ class ImgMegaMenuServiceProvider extends ServiceProvider
             __DIR__.'/../../resources/views',
             'img-mega-menu',
         );
+        
+        // Register menu fields for the mega menu
+        add_action('init', function () {
+            $menuFields = new MenuFields();
+            $menuFields->register();
+        });
     }
 }

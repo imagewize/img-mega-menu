@@ -69,7 +69,7 @@ $menu = Navi::build($name);
                         $ungrouped = [];
                         
                         foreach ($item->children as $child) {
-                          $category = $child->meta('category') ?? '';
+                          $category = $child->category ?? '';
                           if (!empty($category)) {
                             if (!isset($groupedChildren[$category])) {
                               $groupedChildren[$category] = [];
@@ -90,8 +90,8 @@ $menu = Navi::build($name);
                                 <li class="mega-menu-item py-2 hover:text-white" role="none">
                                   <a href="{{ $child->url }}" role="menuitem" class="no-underline block">
                                     {{ $child->label }}
-                                    @if ($child->meta('description'))
-                                      <span class="block text-xs text-gray-400 mt-1">{{ $child->meta('description') }}</span>
+                                    @if ($child->description)
+                                      <span class="block text-xs text-gray-400 mt-1">{{ $child->description }}</span>
                                     @endif
                                   </a>
                                 </li>
@@ -117,16 +117,16 @@ $menu = Navi::build($name);
                       @endif
                       
                       <!-- Featured content section -->
-                      @if ($item->meta('featured_image') || $item->meta('featured_text'))
+                      @if ($item->featured_image || $item->featured_text)
                         <div class="md:w-1/4 mb-6 md:mb-0 px-2">
-                          @if ($item->meta('featured_image'))
+                          @if ($item->featured_image)
                             <div class="mb-4">
-                              <img src="{{ $item->meta('featured_image') }}" alt="Featured" class="w-full rounded">
+                              <img src="{{ $item->featured_image }}" alt="Featured" class="w-full rounded">
                             </div>
                           @endif
-                          @if ($item->meta('featured_text'))
+                          @if ($item->featured_text)
                             <div class="text-sm text-textbodygray">
-                              {!! $item->meta('featured_text') !!}
+                              {!! $item->featured_text !!}
                             </div>
                           @endif
                         </div>
