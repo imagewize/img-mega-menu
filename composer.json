@@ -1,17 +1,17 @@
 {
-  "name": "vendor-name/example-package",
+  "name": "imagewize/img-mega-menu",
   "type": "package",
   "description": "An example package for Roots Acorn.",
   "license": "MIT",
   "authors": [
     {
-      "name": "Brandon Nifong",
-      "email": "brandon@tendency.me"
+      "name": "Jasper Frumau",
+      "email": "jasper@imagewize.com"
     }
   ],
   "autoload": {
     "psr-4": {
-      "VendorName\\ExamplePackage\\": "src/"
+      "Imagewize\\ImgMegaMenu\\": "src/"
     }
   },
   "require": {
@@ -20,10 +20,10 @@
   "extra": {
     "acorn": {
       "providers": [
-        "VendorName\\ExamplePackage\\Providers\\ExampleServiceProvider"
+        "Imagewize\\ImgMegaMenu\\Providers\\ExampleServiceProvider"
       ],
       "aliases": {
-        "Example": "VendorName\\ExamplePackage\\Facades\\Example"
+        "ImgMegaMenu": "Imagewize\\ImgMegaMenu\\Facades\\Example"
       }
     }
   }
