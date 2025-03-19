@@ -1,7 +1,7 @@
 {
   "name": "imagewize/img-mega-menu",
   "type": "package",
-  "description": "An example package for Roots Acorn.",
+  "description": "Mega Menu functionality for Imagewize sites",
   "license": "MIT",
   "authors": [
     {
@@ -20,7 +20,7 @@
   "extra": {
     "acorn": {
       "providers": [
-        "Imagewize\\ImgMegaMenu\\Providers\\ExampleServiceProvider"
+        "Imagewize\\ImgMegaMenu\\Providers\\ImgMegaMenuServiceProvider"
       ],
       "aliases": {
         "ImgMegaMenu": "Imagewize\\ImgMegaMenu\\Facades\\Example"

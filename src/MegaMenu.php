@@ -1,11 +1,10 @@
 <?php
 
-namespace VendorName\ExamplePackage;
+namespace Imagewize\ImgMegaMenu;
 
-use Illuminate\Support\Arr;
 use Roots\Acorn\Application;
 
-class Example
+class MegaMenu
 {
     /**
      * The application instance.
@@ -15,7 +14,7 @@ class Example
     protected $app;
 
     /**
-     * Create a new Example instance.
+     * Create a new MegaMenu instance.
      *
      * @param  \Roots\Acorn\Application  $app
      * @return void
@@ -23,17 +22,5 @@ class Example
     public function __construct(Application $app)
     {
         $this->app = $app;
-    }
-
-    /**
-     * Retrieve a random inspirational quote.
-     *
-     * @return string
-     */
-    public function getQuote()
-    {
-        return Arr::random(
-            config('example.quotes')
-        );
     }
 }
