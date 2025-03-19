@@ -27,16 +27,16 @@ $menu = Navi::build($name);
         <!-- Logo ends -->
         <!-- Menu starts -->
         <div id="megamenu" class="hidden peer-checked:block md:flex md:items-center 
-        w-full md:w-auto absolute top-12 left-0 md:static bg-neutral-900 md:bg-none" role="menubar">
+        w-full md:w-auto absolute top-12 left-0 md:static bg-zinc-900 md:bg-transparent" role="menubar">
           <ul class="md:flex items-center text-sm py-4 md:pt-0">
             @foreach ($menu->all() as $item)
             <li class="group mega-menu-item relative 
             {{ $item->classes ?? '' }} 
             {{ $item->active && !str_contains($item->url, '#') ? 'active 
             text-white md:after:absolute md:after:left-1/2 md:after:bottom-0 md:after:w-10 md:after:h-[3px] 
-            md:after:-ml-[21px] md:after:bg-neutral-600 md:after:content-[""] md:after:block 
+            md:after:-translate-x-1/2 md:after:bg-zinc-500 md:after:content-[""] md:after:block 
             md:after:transition-all md:after:duration-300 md:after:ease-in-out' : '' }} 
-            flex md:block py-2 px-4 no-underline font-open-sans text-textbodygray hover:text-white" 
+            flex md:block py-2 px-4 no-underline font-sans text-gray-400 hover:text-white" 
             role="none">
                 <a href="{{ str_contains($item->url, '#') && !Str::startsWith($item->url, home_url()) ? esc_url(home_url('/')) . ltrim($item->url, '/') : $item->url }}" 
                    role="menuitem" 
@@ -52,17 +52,17 @@ $menu = Navi::build($name);
                    @endif>
                   {{ $item->label }}
                   @if ($item->children)
-                    <svg class="ml-1 inline-block w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <svg class="ml-1 inline-block size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                       <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg>
                   @endif
                 </a>
                 @if ($item->children)
                   <!-- Mega menu dropdown starts -->
-                  <div class="mega-dropdown hidden group-hover:block md:absolute md:left-0 md:w-full md:bg-neutral-900 md:shadow-lg md:z-50"
+                  <div class="mega-dropdown hidden group-hover:block md:absolute md:left-0 md:w-full md:bg-zinc-900 md:shadow-lg md:shadow-black/25 md:z-50"
                        role="menu" 
                        aria-label="{{ $item->label }} megamenu">
-                    <div class="container mx-auto px-4 py-6 md:flex md:flex-wrap">
+                    <div class="container mx-auto px-4 py-6 md:grid md:grid-cols-4 md:gap-6">
                       @php
                         // Group children by category if they have one
                         $groupedChildren = [];
@@ -83,15 +83,15 @@ $menu = Navi::build($name);
                       
                       @if (count($groupedChildren) > 0)
                         @foreach ($groupedChildren as $category => $children)
-                          <div class="md:w-1/4 mb-6 md:mb-0 px-2">
+                          <div class="mb-6 md:mb-0 px-2">
                             <h3 class="font-bold text-white mb-3">{{ $category }}</h3>
-                            <ul class="text-sm text-textbodygray">
+                            <ul class="text-sm text-gray-400">
                               @foreach ($children as $child)
-                                <li class="mega-menu-item py-2 hover:text-white" role="none">
+                                <li class="mega-menu-item py-2 hover:text-white transition duration-200" role="none">
                                   <a href="{{ $child->url }}" role="menuitem" class="no-underline block">
                                     {{ $child->label }}
                                     @if ($child->description)
-                                      <span class="block text-xs text-gray-400 mt-1">{{ $child->description }}</span>
+                                      <span class="block text-xs text-gray-500 mt-1">{{ $child->description }}</span>
                                     @endif
                                   </a>
                                 </li>
@@ -102,11 +102,11 @@ $menu = Navi::build($name);
                       @endif
                       
                       @if (count($ungrouped) > 0)
-                        <div class="md:w-1/4 mb-6 md:mb-0 px-2">
+                        <div class="mb-6 md:mb-0 px-2">
                           <h3 class="font-bold text-white mb-3">Links</h3>
-                          <ul class="text-sm text-textbodygray">
+                          <ul class="text-sm text-gray-400">
                             @foreach ($ungrouped as $child)
-                              <li class="mega-menu-item py-2 hover:text-white" role="none">
+                              <li class="mega-menu-item py-2 hover:text-white transition duration-200" role="none">
                                 <a href="{{ $child->url }}" role="menuitem" class="no-underline block">
                                   {{ $child->label }}
                                 </a>
@@ -118,14 +118,14 @@ $menu = Navi::build($name);
                       
                       <!-- Featured content section -->
                       @if ($item->featured_image || $item->featured_text)
-                        <div class="md:w-1/4 mb-6 md:mb-0 px-2">
+                        <div class="mb-6 md:mb-0 px-2">
                           @if ($item->featured_image)
                             <div class="mb-4">
                               <img src="{{ $item->featured_image }}" alt="Featured" class="w-full rounded">
                             </div>
                           @endif
                           @if ($item->featured_text)
-                            <div class="text-sm text-textbodygray">
+                            <div class="text-sm text-gray-400">
                               {!! $item->featured_text !!}
                             </div>
                           @endif
@@ -144,11 +144,11 @@ $menu = Navi::build($name);
       <div class="flex items-center" id="nav-content">
          <!-- facebook icon -->
         <a class="inline-block no-underline " href="https://www.facebook.com/imagewize/" aria-label="Facebook Account">
-        <x-css-facebook class="fill-current text-white hover:text-textbodygray w-6 h-6 ml-3" />
+        <x-css-facebook class="fill-current text-white hover:text-gray-400 size-6 ml-3 transition duration-200" />
         </a>
         <!-- github icons -->
         <a class="pl-3 inline-block no-underline" href="https://github.com/imagewize/" aria-label="Github">
-          <x-fab-github class="text-white hover:text-textbodygray" />
+          <x-fab-github class="text-white hover:text-gray-400 transition duration-200" />
         </a>
       </div>
     </div> <!-- navigation container end -->

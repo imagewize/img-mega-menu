@@ -12,6 +12,13 @@ A WordPress mega menu package built for Acorn/Sage-based themes. This package en
 - Accessible navigation with proper ARIA attributes
 - Built for use with Roots Sage themes using Acorn
 
+## Requirements
+
+- WordPress with a Sage 10+ theme
+- Acorn framework
+- Log1x/Navi package for menu handling
+- Tailwind CSS (v4.x) for styling
+
 ## Installation
 
 You can install this package with Composer:
@@ -53,4 +60,4 @@ You can customize the appearance of the mega menu by modifying the Blade templat
 $ wp acorn vendor:publish --provider="Imagewize\ImgMegaMenu\Providers\ImgMegaMenuServiceProvider" --tag="views"
 ```
 
-The mega menu is built with accessibility in mind and uses Tailwind CSS for styling.
+The mega menu is built with accessibility in mind and uses Tailwind CSS v4 for styling. You may need to customize the Tailwind classes to match your theme's design system.
